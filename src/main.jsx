@@ -10,6 +10,7 @@ import App from './App.jsx'
 import { createTheme, CssBaseline, ThemeProvider } from '@mui/material';
 import { BrowserRouter } from 'react-router-dom';
 import { SnackbarProvider } from 'notistack';
+import { AuthProvider } from './AuthProvider.jsx';
 
 const theme = createTheme({
   palette: {
@@ -31,8 +32,10 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <ThemeProvider theme={theme}>
         <SnackbarProvider maxSnack={3} autoHideDuration={1500}>
-          <CssBaseline/>
-          <App />
+          <AuthProvider>
+            <CssBaseline/>
+            <App />
+          </AuthProvider>
         </SnackbarProvider>
       </ThemeProvider>
     </BrowserRouter>

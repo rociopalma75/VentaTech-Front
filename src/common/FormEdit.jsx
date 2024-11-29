@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid2';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useSnackbar } from 'notistack';
 import NavigationIcon from '@mui/icons-material/Navigation';
-import InputsForm from './inputsForm';
+import InputsForm from '../common/InputsForm';
 
 function FormEdit({pageTitle, page, inputItems}) {
   const { id } = useParams();

@@ -7,7 +7,7 @@ function InputsForm({inputItems, formData, errors, handleChange}) {
     <>
         {
             inputItems.map((item, index)=>(
-              <Grid item alignContent='center' alignItems='center' key={index} size={4}>
+              <Grid item alignContent='center' alignItems='center' key={index} size={3}>
                 {
                   item.type == 'select' ? (
                   <FormControl fullWidth>
@@ -38,6 +38,7 @@ function InputsForm({inputItems, formData, errors, handleChange}) {
                     }
                     </InputLabel>
                     <Input 
+                      fullWidth
                       type={item.type} 
                       name={item.name} 
                       onChange={handleChange} 

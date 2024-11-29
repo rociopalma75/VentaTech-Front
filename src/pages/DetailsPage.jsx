@@ -9,7 +9,7 @@ function DetailsPage({pageTitle,page,inputItems}) {
     const navigate = useNavigate();
 
     const handleDirection = () =>{
-        navigate(`../`);
+        navigate(`..`);
     }
       
 

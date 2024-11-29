@@ -4,7 +4,7 @@ import Grid from '@mui/material/Grid2'
 import { useSnackbar } from 'notistack';
 import NavigationIcon from '@mui/icons-material/Navigation';
 import { useNavigate } from 'react-router-dom';
-import InputsForm from './inputsForm';
+import InputsForm from './InputsForm';
 
 function Form({pageTitle,page, inputItems}) {
   const { enqueueSnackbar } = useSnackbar();
@@ -83,13 +83,13 @@ function Form({pageTitle,page, inputItems}) {
     <>
         <Typography sx={{mb:2}} variant='h5'>{pageTitle}</Typography>
         <Divider></Divider>
-        <Grid container spacing={2} sx={{mt:4}} component='form' onSubmit={handleSubmit} >
+        <Grid container spacing={3} sx={{mt:4}} component='form' onSubmit={handleSubmit} flexWrap='wrap' overflow='auto'>
           <InputsForm inputItems={inputItems} formData={formData} handleChange={handleChange} errors={errors}/>
-          <Grid container size={10} flexDirection='row' justifyContent='center' alignContent='center'>
+          <Grid container size={12} flexDirection='row' justifyContent='center' alignContent='center'>
             <Button sx={{mt:6}} type='submit' variant='contained'>Registrar</Button>  
           </Grid>
         </Grid>
-        <Fab variant="extended" sx={{position:'absolute', top:'10px', left:'90%'}} onClick={handleBack}>
+        <Fab variant="extended" sx={{position:'absolute', top:'10px', left:'85%'}} onClick={handleBack}>
           <NavigationIcon sx={{ mr: 1 }} />
           Volver
         </Fab>

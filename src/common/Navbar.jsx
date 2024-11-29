@@ -1,7 +1,7 @@
 import React from 'react'
-import {List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, Container, Tooltip, Button, ImageList, ImageListItem} from '@mui/material'
+import {List, ListItem, ListItemButton, ListItemIcon, ListItemText, Button} from '@mui/material'
 import Grid from '@mui/material/Grid2'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import GroupIcon from '@mui/icons-material/Group';
 import QuestionAnswerIcon from '@mui/icons-material/QuestionAnswer';
 import StarBorder from '@mui/icons-material/StarBorder';
@@ -10,8 +10,13 @@ import ElectricalServicesIcon from '@mui/icons-material/ElectricalServices';
 import BadgeIcon from '@mui/icons-material/Badge';
 import SellIcon from '@mui/icons-material/Sell';
 import logoVentaTech from '../assets/logoVentaTech.png'
+import { useAuth } from '../AuthProvider';
+import { useSnackbar } from 'notistack';
 
 function Navbar() {
+    const {logout} = useAuth();
+    const {enqueueSnackbar} = useSnackbar();
+    const navigate = useNavigate();
 
     const navLinks = [
         { title:"Clientes", path:"/Clientes", icon: <GroupIcon/> },
@@ -34,6 +39,11 @@ function Navbar() {
     const navLinksAdmin = [
         { title:"Recursos Humanos", path:"/RRHH", icon: <BadgeIcon/> }
     ]
+
+    const handleCerrarSesion = () => {
+        enqueueSnackbar("Cerrando sesión", {variant:"warning"});
+        logout();
+    }
 
   return (
     <>
@@ -80,8 +90,8 @@ function Navbar() {
 
         <Grid item sx={{mb:2, ml:3, position:'absolute', bottom:'5px'}}>
             <Grid container spacing={4} >
-                <Button>Registros</Button>
-                <Button>Cerrar Sesion</Button>
+                <Button component={NavLink} to="/Historial">Historial</Button>
+                <Button onClick={handleCerrarSesion} component={NavLink} to="../">Cerrar Sesion</Button>
             </Grid>
         </Grid>
     </Grid>
