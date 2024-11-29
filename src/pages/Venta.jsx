@@ -27,6 +27,7 @@ function Venta() {
         {title: "Fecha de Inicio"},
         {title: "Fecha de Entrega"},
         {title: "Empleado"},
+        {title: "Total"},
         {title: "Acciones"},
     ]
 
@@ -40,7 +41,8 @@ function Venta() {
                     productoSoftware: item.productoSoftware.nombreProducto,
                     fechaInicio: item.fechaInicio,
                     fechaEntrega: item.fechaEntrega,
-                    empleadoRealizaVenta: item.empleadoRealizaVenta.usuario
+                    empleadoRealizaVenta: item.empleadoRealizaVenta.usuario,
+                    total:item.total,                                    
                 })
             )
             setData(dataResult);
